@@ -1,6 +1,6 @@
 // script.js
-const apiKey = process.env.API_KEY;  // API Key da variabili di ambiente
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=';
+const apiKey = '85c6b8b1d1d110a134eeb7dc63d7efda';  // sostituisci con la tua API Key
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=city_name&appid=85c6b8b1d1d110a134eeb7dc63d7efda'
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('city');
@@ -8,18 +8,21 @@ const weatherInfo = document.getElementById('weatherInfo');
 
 // Funzione per ottenere i dati del meteo
 async function getWeather(city) {
-    console.log("Fetching weather for city:", city);  // Aggiungi questo log per vedere se la funzione viene chiamata
+    console.log("Fetching weather for city:", city);  // Log per vedere la città passata
+
     const url = `${apiUrl}${city}&appid=${apiKey}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
 
-        console.log("API Response:", data);  // Aggiungi questo log per vedere cosa restituisce l'API
+        console.log("API Response:", data);  // Log per vedere la risposta dell'API
 
         if (data.cod === '404') {
+            console.log("City not found");  // Log se la città non viene trovata
             weatherInfo.innerHTML = `<p>Sorry, the city "${city}" was not found.</p>`;
         } else {
+            console.log("Weather data:", data);  // Log dei dati meteo
             const weather = data.weather[0].description;
             const temperature = data.main.temp;
             const humidity = data.main.humidity;
@@ -36,21 +39,22 @@ async function getWeather(city) {
             `;
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error);  // Log per eventuali errori
         weatherInfo.innerHTML = '<p>Sorry, an error occurred. Please try again later.</p>';
     }
 }
 
 // Aggiungi un listener al pulsante "Get Weather"
 searchBtn.addEventListener('click', function (event) {
-    event.preventDefault();  // Previene il submit del form (evita il ricaricamento della pagina)
+    event.preventDefault();  // Previene il comportamento predefinito (submit form)
     
     const city = cityInput.value.trim();
-    console.log("City input value:", city);  // Aggiungi questo log per vedere cosa viene inserito nel campo
+    console.log("City input value:", city);  // Log per vedere cosa c'è nel campo di input
 
     if (city) {
         getWeather(city);  // Chiamata alla funzione per ottenere il meteo
     } else {
+        console.log("City input is empty");  // Log se il campo è vuoto
         weatherInfo.innerHTML = '<p>Please enter a city name.</p>';
     }
 });
