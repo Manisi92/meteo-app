@@ -5,7 +5,7 @@ const cityInput = document.getElementById('city');
 const weatherInfo = document.getElementById('weather-info');
 
 // API Key e URL per OpenWeatherMap
-const apiKey = 'dcc2f92fa96e39fd3378a3842d16ab19'; // Sostituisci con la tua API key
+const apiKey = process.env.API_KEY
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=';
 
 form.addEventListener('submit', (event) => {
