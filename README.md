@@ -16,7 +16,7 @@ This is a simple weather application that provides real-time weather data for an
 - **OpenWeatherMap API**: Provides real-time weather data (requires an API key).
 
 ## Demo
-You can try the live demo of the app here: [Demo](#) (replace with a live link if deployed online).
+You can try the live demo of the app here: https://meteo-app-rosy.vercel.app/ (replace with a live link if deployed online).
 
 ## Getting Started
 
