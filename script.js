@@ -1,5 +1,5 @@
 // script.js
-const apiKey = process.env.API_KEY;  // API Key da variabili di ambiente
+const apiKey = dcc2f92fa96e39fd3378a3842d16ab19;  // API Key da variabili di ambiente
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=';
 
 const searchBtn = document.getElementById('searchBtn');
