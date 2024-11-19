@@ -1,6 +1,6 @@
 // script.js
-const apiKey = '85c6b8b1d1d110a134eeb7dc63d7efda';  // sostituisci con la tua API Key
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=city_name&appid=85c6b8b1d1d110a134eeb7dc63d7efda'
+const apiKey = 'b14931e715b012bcc6a7b433958382b1';  // sostituisci con la tua API Key
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it&q=city_name&appid=b14931e715b012bcc6a7b433958382b1'
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('city');
